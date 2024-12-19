@@ -1,0 +1,8 @@
+from prawcore.exceptions import OAuthException
+
+def praw_login(bot_name):
+    try:
+        reddit = praw.Reddit(client_id='YOUR_ID', client_secret='YOUR_SECRET', password='YOUR_PASSWORD', username='YOUR_USERNAME', user_agent='YOUR_AGENT')
+        print('[+] PRAW: connect as: ' + str(reddit.user.me()))
+    except OAuthException as e:
+        print(f"OAuthException: {str(e)}")
